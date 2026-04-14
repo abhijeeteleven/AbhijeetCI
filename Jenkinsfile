@@ -2,10 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repo') {
+        stage('Checkout') {
             steps {
-                git branch: 'main',
-                url: 'https://github.com/abhijeeteleven/AbhijeetCI.git'
+                echo 'Code already checked out by Jenkins (SCM)'
             }
         }
 
