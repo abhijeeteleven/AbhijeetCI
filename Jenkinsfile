@@ -2,11 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                echo 'Code already checked out by Jenkins (SCM)'
+                echo 'Building...'
             }
         }
+
+        stage('Install & Test') {
+            steps {
+                bat 'pip install -r requirements.txt'
+                bat 'pytest'
+            }
+        }
+    }
+}
 
         stage('Build') {
             steps {
