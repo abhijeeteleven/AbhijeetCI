@@ -20,5 +20,12 @@ pipeline {
                 echo 'Deploying...'
             }
         }
+stage('Install & Test') {
+    steps {
+        bat 'pip install -r requirements.txt'
+        bat 'python test_sample1.py'
+        bat 'pytest'
+    }
+}     
     }
 }
