@@ -13,6 +13,7 @@ pipeline {
             steps {
                 bat 'pip install -r requirements.txt'
                 bat 'python test_sample1.py'
+                bat 'python test_sample.py'
                 bat 'pytest'
             }
         }
