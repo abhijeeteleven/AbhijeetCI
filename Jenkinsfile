@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Build') {
             steps {
                 echo 'Building...'
@@ -11,6 +12,7 @@ pipeline {
         stage('Install & Test') {
             steps {
                 bat 'pip install -r requirements.txt'
+                bat 'python test_sample1.py'
                 bat 'pytest'
             }
         }
@@ -20,12 +22,6 @@ pipeline {
                 echo 'Deploying...'
             }
         }
-stage('Install & Test') {
-    steps {
-        bat 'pip install -r requirements.txt'
-        bat 'python test_sample1.py'
-        bat 'pytest'
-    }
-}     
+
     }
 }
